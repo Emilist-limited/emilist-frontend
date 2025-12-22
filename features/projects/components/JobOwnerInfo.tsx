@@ -1,0 +1,67 @@
+import Image from "next/image";
+
+import CustomButton from "@/components/atoms/CustomButton";
+import ProfileImage from "@/components/atoms/ProfileImage";
+import ProfileInitial from "@/components/atoms/ProfileInitial";
+import SideChatModal from "@/components/molecules/SideChatModal";
+
+import { Jobs } from "@/features/jobs/types";
+import { useMemoizedUser } from "@/features/auth/helpers";
+import { useOpenChatState } from "@/features/messages/hooks/useOpenChatState";
+
+const JobOwnerInfo = ({ jobInfo }: { jobInfo: Jobs }) => {
+  const { openChat, handleOpen } = useOpenChatState();
+
+  const chatUser = useMemoizedUser(jobInfo?.userId);
+
+  return (
+    <div className="w-full px-10 max-sm:px-5">
+      <h6 className="font-semibold max-sm:text-sm">Job Owner Info</h6>
+      {jobInfo ? (
+        <div className="flex-c-b gap-5 flex-wrap mt-4">
+          <div className="flex-c gap-2">
+            {jobInfo?.userId?.profileImage ? (
+              <ProfileImage
+                src={jobInfo?.userId?.profileImage}
+                alt="Worker profile picture"
+                size={44}
+                className="w-[44px] h-[44px] max-sm:w-[25px] max-sm:h-[25px]"
+              />
+            ) : (
+              <ProfileInitial
+                initial={jobInfo?.userId?.userName?.[0]?.toUpperCase() || ""}
+                className="w-[44px] h-[44px] max-sm:w-[25px] max-sm:h-[25px]"
+              />
+            )}
+            <div className="flex-1 flex flex-col gap-1">
+              <div className="flex items-center justify-between">
+                <h6 className="sm:text-lg font-medium">
+                  {jobInfo?.userId?.fullName || jobInfo?.userId?.userName}
+                </h6>
+              </div>
+            </div>
+          </div>
+
+          <CustomButton onClick={handleOpen}>
+            <Image
+              src="/icons/messages.svg"
+              alt="menu"
+              width={20}
+              height={20}
+              className="object-contain w-6 h-6 max-sm:w-5 max-sm:h-5 mr-1"
+            />
+            Chats
+          </CustomButton>
+
+          <SideChatModal
+            toggle={handleOpen}
+            user={chatUser}
+            isOpen={openChat}
+          />
+        </div>
+      ) : null}
+    </div>
+  );
+};
+
+export default JobOwnerInfo;
