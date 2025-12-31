@@ -5,7 +5,7 @@ const AppStoreLinks = () => (
   <div className="flex justify-center gap-4">
     <MenuLink href="/">
       <AppImage
-        src="/images/appstore.svg"
+        src="/images/appStore.svg"
         alt="Play Store"
         width={169}
         height={49}
@@ -14,7 +14,7 @@ const AppStoreLinks = () => (
     </MenuLink>
     <MenuLink href="/">
       <AppImage
-        src="/images/playStore.png"
+        src="/images/playstore.png"
         alt="Google Play"
         width={200}
         height={55}
