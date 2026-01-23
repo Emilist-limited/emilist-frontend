@@ -131,7 +131,7 @@ const FaqWrapper = () => {
                   </button>
 
                   <AnimatePresence>
-                    {openId === faq.id && (
+                    {openId === faq?.id && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
@@ -141,7 +141,7 @@ const FaqWrapper = () => {
                       >
                         <div className="px-6 pb-5 pl-20">
                           <p className="text-slate-600 leading-relaxed">
-                            {faq.answer}
+                            {faq?.answer}
                           </p>
                         </div>
                       </motion.div>

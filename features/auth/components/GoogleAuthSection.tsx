@@ -5,7 +5,7 @@ import { SocialButton } from "./SocialButton";
 
 import { useGoogleSignUp } from "../hooks/useGoogleSignUp";
 
-const SocialSignUpSection = () => {
+const GoogleAuthSection = () => {
   const { googleAuth } = useGoogleSignUp();
 
   return (
@@ -17,4 +17,4 @@ const SocialSignUpSection = () => {
   );
 };
 
-export default SocialSignUpSection;
+export default GoogleAuthSection;
