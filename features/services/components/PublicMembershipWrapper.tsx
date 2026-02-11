@@ -13,12 +13,6 @@ const PublicMembershipWrapper = ({
     <div className="pt-10 pb-6">
       <h3 className="text-xl font-semibold mb-6">Membership</h3>
       <div className="flex flex-wrap gap-8">
-        <MembershipCard
-          organization="Painters Association of Nigeria"
-          position="Member"
-          startDate="25/Feb/1998"
-          endDate="25/Feb/1998"
-        />
         {memberships?.length > 0 ? (
           <>
             {memberships?.map((membership: Membership, index: number) => (
@@ -35,8 +29,8 @@ const PublicMembershipWrapper = ({
                   membership?.isMembershipExpire
                     ? "Doesn't end"
                     : membership?.endDate
-                    ? convertDateFormat(membership?.endDate)
-                    : "N/A"
+                      ? convertDateFormat(membership?.endDate)
+                      : "N/A"
                 }
               />
             ))}
