@@ -54,7 +54,10 @@ const DashboardMegaMenuContent = ({
               </p>
               {currentUser?.businesses?.length < 1 ||
               !currentUser?.businesses ? (
-                <NoMoreMessage message="You haven't listed any service yet. Add service to add your service(s)." />
+                <NoMoreMessage
+                  message="You haven't listed any service yet. Add service to add your service(s)."
+                  wrap=""
+                />
               ) : (
                 <ul className="space-y-1 pt-2">
                   {currentUser?.businesses?.map((service: ServiceProps) => (
