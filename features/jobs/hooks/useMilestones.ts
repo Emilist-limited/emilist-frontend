@@ -8,7 +8,7 @@ import { validateMilestoneAmounts } from "../helpers/validate";
 
 export const useMilestones = (
   initialMilestones: MilestonePer[],
-  budget: string
+  budget: string,
 ) => {
   const { showToast } = useToast();
 
@@ -18,14 +18,14 @@ export const useMilestones = (
   const updateMilestonesData = (
     value: string | number,
     index: number,
-    field: keyof MilestonePer
+    field: keyof MilestonePer,
   ) => {
     const updatedMilestones: any = [...milestonesData];
     updatedMilestones[index][field] = value;
 
     if (field === "duration") {
       updatedMilestones[index].duration = formatInputTextNumber(
-        value.toString()
+        value.toString(),
       );
     } else if (field === "percentage") {
       let numericValue = Number(value);
@@ -41,7 +41,7 @@ export const useMilestones = (
       updatedMilestones[index].percentage = numericValue;
       const budgetAmount = removeCommas(budget);
       updatedMilestones[index].amount = parseFloat(
-        ((numericValue / 100) * Number(budgetAmount)).toFixed(2)
+        ((numericValue / 100) * Number(budgetAmount)).toFixed(2),
       );
     } else {
       updatedMilestones[index][field] = value;
@@ -56,7 +56,7 @@ export const useMilestones = (
     while (newMilestones.length < count) {
       newMilestones.push({
         duration: "",
-        durationType: "day",
+        durationType: "days",
         details: "",
         amount: 0,
         percentage: 0,
