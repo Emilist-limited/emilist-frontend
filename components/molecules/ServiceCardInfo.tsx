@@ -27,7 +27,11 @@ const ServiceCardInfo = ({ expert }: { expert: any }) => {
       >
         {expert?.services[0] && Capitalize(expert?.services[0])}
       </Link>
-      <ReadMore text={expert?.bio} maxLength={100} style="text-sm" />
+      <ReadMore
+        text={expert?.businessDescription}
+        maxLength={100}
+        style="text-sm"
+      />
       <div className="flex-c-b  sm:gap-4 gap-2 flex-wrap">
         <div className="flex-c gap-1 max-sm:text-sm ">
           <Rating rating={expert?.averageRating || 0} />{" "}

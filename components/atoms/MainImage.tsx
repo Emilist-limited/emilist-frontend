@@ -17,6 +17,8 @@ const MainImage = ({ src, alt, onPrev, onNext }: MainImageProps) => {
         alt={alt}
         width={676}
         height={413}
+        unoptimized
+        priority
         className="object-cover w-full h-full rounded-xl"
       />
       <ArrowButton
